@@ -3,14 +3,32 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from 'react-oidc-context';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const oidcConfig = {
+    authority: 'https://awesome-dhaval-dev-ed.my.salesforce.com',
+    client_id: '3MVG9KsVczVNcM8xBfX.rFLJ80L9R.HCQKsXBioYk6kbaZ4Hm3y8bwCNz7v_vNSOSoUwPXq_OfELfJVoIJAj_',
+    redirect_uri: 'https://ui.dhaval.ml/oauth2/callback',
+    code_verifier: true,
+    noonce: true,
+    responseType: 'code',
+    scope: 'openid id profile email',  
+    onSigninCallback: (_user: any | void): void => {
+        console.log('signed in');
+        window.history.replaceState({}, document.title, window.location.pathname);
+    },
+};
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <BrowserRouter>
+            <AuthProvider {...oidcConfig}>
+              <App />
+            </AuthProvider>
+        </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
