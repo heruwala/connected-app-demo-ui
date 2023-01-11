@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from 'react-oidc-context';
 import '@salesforce/canvas-js-sdk';
+import { Data } from './data';
 
 export const Authenticated: React.FC<any> = (_props) => {
     const auth = useAuth();
-
     const [loggedIn, setLoggedIn] = useState(false);
     const checkLogin = () => {
         const canvas = global.Sfdc.canvas;
@@ -63,15 +63,15 @@ export const Authenticated: React.FC<any> = (_props) => {
 
         //var ctxlink = Sfdc.canvas.byId("ctxlink");
 
-        canvas.client.ctx((msg: any) => {
-            console.log('Message: ', JSON.stringify(msg));
-            console.log('UserId: ', msg.payload.user.userId);
-            console.log('Size: ', JSON.stringify(canvas.client.size()));
-            //canvas.client.autogrow(client);
-            canvas.client.resize(client, { height: '1000', width: '500' });
-            console.log('Size: ', JSON.stringify(canvas.client.size()));
-        }, client);
-
+            canvas.client.ctx((msg: any) => {
+                console.log('Message: ', JSON.stringify(msg));
+                console.log('UserId: ', msg.payload.user.userId);
+                console.log('Size: ', JSON.stringify(canvas.client.size()));
+                //canvas.client.autogrow(client);
+                canvas.client.resize(client, { height: '1000', width: '500' });
+                console.log('Size: ', JSON.stringify(canvas.client.size()));
+            }, client);
+        
         if (auth.user?.profile) {
             console.log('User: ', JSON.stringify(auth.user));
         }
@@ -80,8 +80,7 @@ export const Authenticated: React.FC<any> = (_props) => {
                 Hello
                 {auth.user?.profile ? (
                     <div>
-                        <div>Sub: {auth.user.profile.sub}</div>
-
+                        <div>Sub(unique userId): {auth.user.profile.sub}</div>
                         <div>Email: {auth.user.profile.email}</div>
                         <div>Phone Number: {auth.user.profile.phone_number}</div>
                         <div>Profile: {auth.user.profile.profile}</div>
@@ -110,6 +109,7 @@ export const Authenticated: React.FC<any> = (_props) => {
                 ) : (
                     <div>Nothing</div>
                 )}
+                <Data/>
                 <button onClick={() => void auth.removeUser()}>Log out</button>
             </div>
         );
