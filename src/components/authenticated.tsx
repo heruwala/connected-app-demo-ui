@@ -67,16 +67,26 @@ export const Authenticated: React.FC<any> = (_props) => {
                 console.log('Message: ', JSON.stringify(msg));
                 console.log('UserId: ', msg.payload.user.userId);
                 console.log('Size: ', JSON.stringify(canvas.client.size()));
-                //canvas.client.autogrow(client);
-                canvas.client.resize(client, { height: '1000', width: '500' });
+                canvas.client.autogrow(client);
+                //canvas.client.resize(client, { height: '1000', width: '500' });
                 console.log('Size: ', JSON.stringify(canvas.client.size()));
             }, client);
         
         if (auth.user?.profile) {
             console.log('User: ', JSON.stringify(auth.user));
         }
+        const handleMakeBig = () => {
+            canvas.client.resize(client, { height: '2000', width: '500' });
+        }
+
+        const handleMakeSmall = ()=> {
+            canvas.client.resize(client, { height: '400', width: '500' });
+        }
+
         return (
-            <div>
+            <div style={{backgroundColor: "yellow"}}>
+                <button onClick={() => void handleMakeBig()}>Make Big</button>
+                <button onClick={() => void handleMakeSmall()}>Make Small</button>
                 Hello
                 {auth.user?.profile ? (
                     <div>
