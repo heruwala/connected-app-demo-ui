@@ -8,8 +8,8 @@ import { AuthProvider } from 'react-oidc-context';
 import { ApolloConnection } from './components/apollo-connection';
 
 const oidcConfig = {
-    authority: 'https://awesome-dhaval-dev-ed.my.salesforce.com',
-    client_id: '3MVG9KsVczVNcM8xBfX.rFLJ80L9R.HCQKsXBioYk6kbaZ4Hm3y8bwCNz7v_vNSOSoUwPXq_OfELfJVoIJAj_',
+    authority: 'https://d0b000000venlea2-dev-ed.my.salesforce.com',
+    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4',
     redirect_uri: 'https://ui.dhaval.ml/oauth2/callback',
     code_verifier: true,
     noonce: true,

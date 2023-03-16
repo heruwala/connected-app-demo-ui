@@ -3,7 +3,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache, from, HttpLink } from '@ap
 
 export const ApolloConnection: React.FC<any> = (props) => {
 
-    const oidcDetails = JSON.parse(sessionStorage.getItem('oidc.user:https://awesome-dhaval-dev-ed.my.salesforce.com:3MVG9KsVczVNcM8xBfX.rFLJ80L9R.HCQKsXBioYk6kbaZ4Hm3y8bwCNz7v_vNSOSoUwPXq_OfELfJVoIJAj_') || '{}');
+    const oidcDetails = JSON.parse(sessionStorage.getItem('oidc.user:https://d0b000000venlea2-dev-ed.my.salesforce.com:3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4') || '{}');
 
     const client = new ApolloClient({
         link: new HttpLink({

@@ -21,7 +21,7 @@ export const Authenticated: React.FC<any> = (_props) => {
                 uri: uri,
                 params: {
                     response_type: 'token',
-                    client_id: '3MVG9KsVczVNcM8xBfX.rFLJ80L9R.HCQKsXBioYk6kbaZ4Hm3y8bwCNz7v_vNSOSoUwPXq_OfELfJVoIJAj_',
+                    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4',
                     display: 'page',
                     immidiate: true,
                     redirect_uri: encodeURIComponent('https://ui.dhaval.ml/oauth2/callback'),
