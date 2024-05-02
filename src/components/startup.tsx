@@ -20,10 +20,10 @@ export const Startup: React.FC<any> = (_props) => {
                 uri: uri,
                 params: {
                     response_type: 'token',
-                    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4',
+                    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUiGHIkmSltLjNFDcuaHuymCArAmQU.M1bBgbBnHTd6cC_J7zUo3lAF3nmdXy',
                     display: 'page',
                     immidiate: true,
-                    redirect_uri: encodeURIComponent('https://ui.dhaval.ml/oauth2/callback'),
+                    redirect_uri: encodeURIComponent('https://datavis-local.heruwala.us/oauth2/callback'),
                 } as any,
             });
             const result = canvas.oauth.loggedin();

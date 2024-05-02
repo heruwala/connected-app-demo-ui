@@ -21,10 +21,10 @@ export const Authenticated: React.FC<any> = (_props) => {
                 uri: uri,
                 params: {
                     response_type: 'token',
-                    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4',
+                    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUiGHIkmSltLjNFDcuaHuymCArAmQU.M1bBgbBnHTd6cC_J7zUo3lAF3nmdXy',
                     display: 'page',
                     immidiate: true,
-                    redirect_uri: encodeURIComponent('https://ui.dhaval.ml/oauth2/callback'),
+                    redirect_uri: encodeURIComponent('https://datavis-local.heruwala.us/oauth2/callback'),
                 } as any,
             });
             const result = canvas.oauth.loggedin();
@@ -61,16 +61,16 @@ export const Authenticated: React.FC<any> = (_props) => {
             targetOrigin: localStorage.getItem('target_origin'),
         }
 
-        //var ctxlink = Sfdc.canvas.byId("ctxlink");
-
-            canvas.client.ctx((msg: any) => {
-                console.log('Message: ', JSON.stringify(msg));
-                console.log('UserId: ', msg.payload.user.userId);
-                console.log('Size: ', JSON.stringify(canvas.client.size()));
-                canvas.client.autogrow(client);
-                //canvas.client.resize(client, { height: '1000', width: '500' });
-                console.log('Size: ', JSON.stringify(canvas.client.size()));
-            }, client);
+        canvas.client.ctx((msg: any) => {
+            const contactId = msg.payload.environment.record.Id;
+            window.sessionStorage.setItem('contactId', `${contactId}`);
+            console.log('Contact Id: ', contactId);
+            console.log('Message: ', JSON.stringify(msg));
+            console.log('UserId: ', msg.payload.user.userId);
+            console.log('Size: ', JSON.stringify(canvas.client.size()));
+            canvas.client.autogrow(client);
+            console.log('Size: ', JSON.stringify(canvas.client.size()));
+        }, client);
         
         if (auth.user?.profile) {
             console.log('User: ', JSON.stringify(auth.user));
@@ -84,12 +84,14 @@ export const Authenticated: React.FC<any> = (_props) => {
         }
 
         return (
-            <div style={{backgroundColor: "yellow"}}>
+            <div style={{backgroundColor: "teal"}}>
                 <button onClick={() => void handleMakeBig()}>Make Big</button>
                 <button onClick={() => void handleMakeSmall()}>Make Small</button>
-                Hello
+                <br/>
+                <b>Profile Info:</b>
                 {auth.user?.profile ? (
                     <div>
+                        <div>Contact Id: {sessionStorage.getItem('contactId')}</div>
                         <div>Sub(unique userId): {auth.user.profile.sub}</div>
                         <div>Email: {auth.user.profile.email}</div>
                         <div>Phone Number: {auth.user.profile.phone_number}</div>

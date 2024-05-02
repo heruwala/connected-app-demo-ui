@@ -9,8 +9,8 @@ import { ApolloConnection } from './components/apollo-connection';
 
 const oidcConfig = {
     authority: 'https://d0b000000venlea2-dev-ed.my.salesforce.com',
-    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUlvnIdQdljU4fSCfwNgmZLdzMZjzPBhrI3Cc16DRfQyhjlYbtFbl6h9CNlp4',
-    redirect_uri: 'https://ui.dhaval.ml/oauth2/callback',
+    client_id: '3MVG9dZJodJWITSsjcwSiY9YTUiGHIkmSltLjNFDcuaHuymCArAmQU.M1bBgbBnHTd6cC_J7zUo3lAF3nmdXy',
+    redirect_uri: 'https://datavis-local.heruwala.us/oauth2/callback',
     code_verifier: true,
     noonce: true,
     responseType: 'code',
